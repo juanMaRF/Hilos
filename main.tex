@@ -1,0 +1,110 @@
+\documentclass[11pt]{article}
+
+% Character set for input and output
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Fonts
+\usepackage{libertine}
+\usepackage[scaled=0.83]{beramono}
+
+% AMS math-packages
+\usepackage{amssymb}
+\usepackage{amsmath,amsthm}
+
+% TODO in text
+\usepackage{todonotes}
+
+% URL (clickable), references within document, etc./
+\usepackage{hyperref}
+
+% Code formatting
+\usepackage{listings}
+\lstset{
+   language=java,
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=left,
+   numberstyle=\footnotesize,
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   frame=single,
+   extendedchars=false,
+   inputencoding=utf8,
+   captionpos=b
+}
+
+% Text / Paragraph space
+\addtolength{\textwidth}{1.5cm}
+\addtolength{\hoffset}{-0.5cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.5ex plus 1ex minus 1ex}
+
+\title{Hilos}
+\author{{\Large Autor}\\Juan Manuel Rivera Florez\\
+        \href{mailto:juanm.rivera@udea.edu.co}{\texttt{juanm.rivera@udea.edu.co}}}
+\date{18 Julio 2020}
+%\date{December 14, 2019}
+
+\begin{document}
+
+\maketitle
+
+
+%
+Un hilo es la secuencia más pequeña de instrucciones programadas que se pueden tener de forma independiente a la hora de programar, también es parte del sistema operativo. Los hilos y los procesos dependen del sistema operativo, pero normalmente es un componente de un proceso. Los hilos de un proceso comparten el mismo código ejecutable y sus variables dinámicas.
+%
+\\
+\\
+%
+También estos se definen como el flujo de control de un programa, ayuda al microprocesador a administrar sus tareas, los hilos vagamente hablando se puede decir que hacen creer al usuario que hace varias tareas al mismo tiempo, dividiendo las tareas en pequeñas partes y se van ejecutando de manera alternada para que parezca que es al mismo tiempo.
+%
+\section*{Historia}
+%
+Los hilos inicialmente se llamaron tareas, su historia data de los 1965 con el sistema de tiempo compartido Berkeley. Las tareas interactúan a través de de variables, Max Smith hizo un prototipo de hilos en Multics cerca de los 1970,este uso múltiples pilas en un solo proceso pesado para soportar compilaciones en segundo plano.
+%
+\\\\
+Sin embargo lo más importante acerca de los hilos es el lenguaje de programación PL/I, de aproximadamente 1965 (el lenguaje está definido por IBM). Se decidió que la llamada tarea como se definió no se asignaba a los procesos, ya que no había protección entre el control de los hilos.
+%
+\\\\
+%
+Luego llegó Unix, al inicio de 1970. La noción de Unix de un proceso se convirtió en un hilo secuencial de control más un espacio virtual de direcciones, entonces los procesos en Unix son muy pesados. Desde que ellos no compartían memoria, estos se comunicaban con señales, “tuberías”, etc.
+%
+\\\\
+%
+Después de algún tiempo, los usuarios de Unix empezaron a extrañar los procesos antiguos que podían compartir memoria. Esto condujo a la invención de hilos como: procesos estilo “retro” que compartían el espacio de dirección de un proceso único de Unix. Estos también son llamados de peso suave, por el contraste con los procesos pesados de Unix.
+%
+\subsection*{Tipos de Hilos}
+\begin{itemize}
+    \item 1: 1 (roscado a nivel del núcleo )
+    \item N: 1 (a nivel de usuario)
+    \item M: N (híbrido)
+\end{itemize}
+\section*{Implementacion de los hilos}
+A la hora de implementar los hilos los hilos estos pueden depender del hardware que se esté usando o también la plataforma de desarrollo (El tipo de máquina virtual java se está usando, KVM), El mismo código que los programadores crean, importa.
+
+Generalmente los sistemas operativos implementan los hilos de 2 maneras:
+
+multihilos apropiativos: Este funciona “cambiando de contexto”, pero lo malo de esto es que puede cambiar las prioridades y generar otros problemas.
+
+multihilos cooperativos: En este depende del propio hilo abandonar cuando llega a un punto de ejecución, pero puede generar problemas a la hora de disponibilidad de recursos. 
+
+Esta característica fue introducida por Intel bajo el nombre de Hyperthreading.
+%
+\subsection*{Referencia}
+
+
+%
+\begin{itemize}
+    \item E. Rorigez Garcia  Núcleos e hilos en un procesador: qué son y en qué se diferencian [Online] Available: \url{https://www.elespanol.com/omicrono/tecnologia/20170707/nucleos-hilos-procesador-diferencian/229478224_0.html}
+    \item B. O’Sullivan The history of threads [Online] Available: \url{http://www.serpentine.com/blog/threads-faq/the-history-of-threads/}
+    \item Gestión de hilos de ejecución. [Online] Available: \url{http://bibing.us.es/proyectos/abreproy/11320/fichero/Capitulos%252F13.pdf}
+    \item Thread (computing) [Online] Available: \url{https://en.wikipedia.org/wiki/Thread_%28computing%29}
+
+\end{itemize}
+
+\end{document}
